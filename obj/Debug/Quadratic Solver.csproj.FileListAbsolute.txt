@@ -1,0 +1,9 @@
+C:\Users\vorte\source\repos\Quadratic Solver\bin\Debug\Quadratic Solver.exe.config
+C:\Users\vorte\source\repos\Quadratic Solver\bin\Debug\Quadratic Solver.exe
+C:\Users\vorte\source\repos\Quadratic Solver\bin\Debug\Quadratic Solver.pdb
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic Solver.csprojAssemblyReference.cache
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic_Solver.Form1.resources
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic_Solver.Properties.Resources.resources
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic Solver.csproj.GenerateResource.cache
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic Solver.exe
+C:\Users\vorte\source\repos\Quadratic Solver\obj\Debug\Quadratic Solver.pdb
