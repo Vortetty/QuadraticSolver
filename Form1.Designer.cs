@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.a = new System.Windows.Forms.TextBox();
             this.b = new System.Windows.Forms.TextBox();
             this.c = new System.Windows.Forms.TextBox();
@@ -38,8 +39,7 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.round = new System.Windows.Forms.TextBox();
-            this.graph = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.graph)).BeginInit();
+            this.plot = new ScottPlot.FormsPlot();
             this.SuspendLayout();
             // 
             // a
@@ -142,21 +142,19 @@
             this.round.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.round.TextChanged += new System.EventHandler(this.round_TextChanged);
             // 
-            // graph
+            // plot
             // 
-            this.graph.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.graph.Location = new System.Drawing.Point(12, 136);
-            this.graph.Name = "graph";
-            this.graph.Size = new System.Drawing.Size(336, 336);
-            this.graph.TabIndex = 10;
-            this.graph.TabStop = false;
+            this.plot.Location = new System.Drawing.Point(12, 136);
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(336, 336);
+            this.plot.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 484);
-            this.Controls.Add(this.graph);
+            this.Controls.Add(this.plot);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.round);
             this.Controls.Add(this.textBox5);
@@ -169,7 +167,6 @@
             this.Controls.Add(this.a);
             this.Name = "Form1";
             this.Text = "Quadratic Solver";
-            ((System.ComponentModel.ISupportInitialize)(this.graph)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,7 +184,7 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox round;
-        private System.Windows.Forms.PictureBox graph;
+        private ScottPlot.FormsPlot plot;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScottPlot;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,8 +7,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using static System.Math;
 
@@ -107,12 +110,38 @@ namespace Quadratic_Solver
 
             if (numx > numx1 && numa != 0)
             {
-                graph.Image = MakeGraph(graph.ClientSize.Width, graph.ClientSize.Height, (float)numx1 - 3, (float)numx + 3, (float)(verty + ((verty / verty) * 3)), (float)(-verty + ((-verty / verty) * 3)));
+                int pointCount = ((int)numx + 25) - ((int)numx1 - 25);
+                double[] x = ConsecutiveMin(pointCount, min: (int)numx1 - 25);
+                double[] quad = Quadratic(x, numa, numb, numc);
+                plot.plt.Clear();
+                plot.plt.PlotScatter(x, quad, color: Color.Blue, label: "cos", lineWidth: 2.5, markerSize: 1);
+                //graph.Image = MakeGraph(graph.ClientSize.Width, graph.ClientSize.Height, (float)numx1 - 3, (float)numx + 3, (float)(verty + ((verty / verty) * 3)), (float)(-verty + ((-verty / verty) * 3)));
             }
             else if (numx < numx1 && numa != 0)
             {
-                graph.Image = MakeGraph(graph.ClientSize.Width, graph.ClientSize.Height, (float)numx - 3, (float)numx1 + 3, (float)(verty + ((verty / verty) * 3)), (float)(-verty + ((-verty / verty) * 3)));
+                int pointCount = ((int)numx1 + 25) - ((int)numx - 25);
+                double[] x = ConsecutiveMin(pointCount, min: (int)numx - 25);
+                double[] quad = Quadratic(x, numa, numb, numc);
+                plot.plt.Clear();
+                plot.plt.PlotScatter(x, quad, color: Color.Blue, label: "cos", lineWidth: 2.5, markerSize: 1);
+                //graph.Image = MakeGraph(graph.ClientSize.Width, graph.ClientSize.Height, (float)numx - 3, (float)numx1 + 3, (float)(verty + ((verty / verty) * 3)), (float)(-verty + ((-verty / verty) * 3)));
             }
+        }
+
+        public static double[] ConsecutiveMin(int pointCount, double spacing = 1, int min = 0)
+        {
+            double[] ys = new double[pointCount];
+            for (int i = 0; i < ys.Length; i++)
+                ys[i] = (i + min) * spacing;
+            return ys;
+        }
+
+        public static double[] Quadratic(double[] xs, double a, double b, double c)
+        {
+            double[] ys = new double[xs.Length];
+            for (int i = 0; i < xs.Length; i += 1)
+                ys[i] = (a * Pow(xs[i], 2)) + (b * xs[i]) + c;
+            return ys;
         }
 
         private void round_TextChanged(object sender, EventArgs e)
@@ -234,6 +263,11 @@ namespace Quadratic_Solver
 
             // Display the result.
             return bm;
+        }
+
+        private void plot_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
